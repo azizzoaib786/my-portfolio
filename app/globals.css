@@ -1,14 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #0B1120;
+  --color-brand-card: #111827;
+  --color-brand-blue: #3B82F6;
+  --color-brand-cyan: #06B6D4;
+}
 
 html { scroll-behavior: smooth; }
 body { background: #0B1120; color: #F8FAFC; }
+
 .gradient-text {
   background: linear-gradient(90deg, #3B82F6, #06B6D4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .card {
   background: rgba(17, 24, 39, 0.78);
   border: 1px solid rgba(148, 163, 184, 0.16);
