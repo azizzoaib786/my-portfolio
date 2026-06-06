@@ -64,13 +64,13 @@ const projects = [
 const awards = [
   'Najm Award from Emirates Airlines for the EKAS-MIS data platform deployed for Emirates digital platform',
   'Najm Award from Emirates Airlines for automation contributions on the Meal Voucher project at Dubai Airports',
-  'Special recognition at Talabat for end-to-end AWS infrastructure provisioning with Terraform',
-  'Special Efforts Award from Gemalto for IBM Private Cloud to AWS migration',
   'MSc Data Science research recognition for AI-driven Kubernetes self-healing',
-  'Redis Hackathon Winner — AI Tinkerers Dubai'
+  'Redis Hackathon Winner — AI Tinkerers Dubai',
+  'Special recognition at Talabat for end-to-end AWS infrastructure provisioning with Terraform',
+  'Special Efforts Award from Gemalto for IBM Private Cloud to AWS migration'
 ]
 
-const certifications = ['CKA', 'CKAD', 'AWS Solutions Architect Associate', 'AWS Certified AI Practitioner', 'AWS Cloud Practitioner', 'New Relic Full Stack Observability Practitioner', 'ITIL Foundation', 'LPIC-1']
+const certifications = ['CKA', 'CKAD', 'AWS Solutions Architect Associate', 'AWS Certified AI Practitioner', 'AWS Cloud Practitioner', 'New Relic Full Stack Observability Practitioner', 'ITIL Foundation']
 
 function SectionTitle({ eyebrow, title, subtitle }: { eyebrow: string, title: string, subtitle?: string }) {
   return <div className="mb-10">
