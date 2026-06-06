@@ -94,6 +94,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a className="rounded-full bg-blue-500 px-6 py-3 font-semibold text-white hover:bg-blue-400" href="#contact">Contact Me</a>
               <a className="rounded-full border border-slate-600 px-6 py-3 font-semibold text-slate-100 hover:border-cyan-300" href={links.linkedin} target="_blank">View LinkedIn</a>
+              <a className="rounded-full border border-cyan-500/50 bg-cyan-500/10 px-6 py-3 font-semibold text-cyan-200 hover:bg-cyan-500/20" href="/aziz-zoaib-cv.pdf" download>Download CV</a>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
               {['15+ Years', 'AWS Azure GCP', 'Kubernetes SRE', 'AI + RAG'].map((item) => <div key={item} className="card rounded-2xl p-5 text-center font-bold">{item}</div>)}
@@ -101,6 +102,9 @@ export default function Home() {
           </div>
           <div className="card rounded-[2rem] p-8">
             <div className="rounded-[1.5rem] border border-slate-700 bg-slate-950/50 p-8">
+              <div className="flex justify-center mb-6">
+                <img src="/aziz-zoaib.jpg" alt="Aziz Zoaib" className="w-32 h-32 rounded-full object-cover border-4 border-cyan-400/40 shadow-lg" />
+              </div>
               <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">Professional Focus</p>
               <div className="mt-8 space-y-5">
                 {[['Cloud Architecture', Cloud], ['Kubernetes Platforms', Server], ['Security & Reliability', ShieldCheck], ['AI Engineering', Brain]].map(([label, Icon]: any) => <div key={label} className="flex items-center gap-4 rounded-2xl bg-slate-900/70 p-4"><Icon className="text-cyan-300" /><span>{label}</span></div>)}
