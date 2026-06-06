@@ -1,4 +1,4 @@
-import { Mail, Phone, MessageCircle, Linkedin, Github, ExternalLink, Cloud, Server, ShieldCheck, Brain, Trophy, GraduationCap } from 'lucide-react'
+import { Mail, Phone, MessageCircle, ExternalLink, Cloud, Server, ShieldCheck, Brain, Trophy, GraduationCap, Code2, Link2 } from 'lucide-react'
 
 const links = {
   linkedin: 'https://www.linkedin.com/in/azizzoaib786/',
@@ -158,8 +158,8 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <SectionTitle eyebrow="Writing & Open Source" title="Community presence" />
         <div className="grid gap-6 md:grid-cols-3">
-          <a className="card rounded-3xl p-7 hover:border-cyan-300" href={links.linkedin} target="_blank"><Linkedin className="mb-4 text-cyan-300" /><h3 className="text-xl font-bold">LinkedIn</h3><p className="mt-3 text-slate-300">Professional updates, cloud engineering and platform leadership.</p></a>
-          <a className="card rounded-3xl p-7 hover:border-cyan-300" href={links.github} target="_blank"><Github className="mb-4 text-cyan-300" /><h3 className="text-xl font-bold">GitHub</h3><p className="mt-3 text-slate-300">Projects, experiments and engineering repositories.</p></a>
+          <a className="card rounded-3xl p-7 hover:border-cyan-300" href={links.linkedin} target="_blank"><Link2 className="mb-4 text-cyan-300" /><h3 className="text-xl font-bold">LinkedIn</h3><p className="mt-3 text-slate-300">Professional updates, cloud engineering and platform leadership.</p></a>
+          <a className="card rounded-3xl p-7 hover:border-cyan-300" href={links.github} target="_blank"><Code2 className="mb-4 text-cyan-300" /><h3 className="text-xl font-bold">GitHub</h3><p className="mt-3 text-slate-300">Projects, experiments and engineering repositories.</p></a>
           <a className="card rounded-3xl p-7 hover:border-cyan-300" href={links.medium} target="_blank"><ExternalLink className="mb-4 text-cyan-300" /><h3 className="text-xl font-bold">Medium</h3><p className="mt-3 text-slate-300">Technical articles and cloud-native learning content.</p></a>
         </div>
       </section>
