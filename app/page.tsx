@@ -76,7 +76,7 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden">
       <nav className="fixed top-0 z-50 w-full border-b border-slate-800/80 bg-[#0B1120]/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#home" className="text-xl font-bold">Aziz<span className="gradient-text">Zoaib</span></a>
+          <a href="#home" className="text-xl font-bold">Aziz <span className="gradient-text">Zoaib</span></a>
           <div className="hidden gap-6 text-sm text-slate-300 md:flex">
             <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
           </div>
@@ -87,9 +87,9 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.25),transparent_35%),radial-gradient(circle_at_top_left,rgba(6,182,212,0.18),transparent_30%)]" />
         <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-24 md:grid-cols-[1.2fr_0.8fr] md:items-center">
           <div>
-            <p className="mb-5 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">Dubai based Cloud Native & Platform Engineering Leader</p>
+            <p className="mb-5 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">Cloud Native & Platform Engineering Leader</p>
             <h1 className="text-5xl font-black leading-tight md:text-7xl">Aziz Zoaib</h1>
-            <h2 className="mt-5 text-2xl font-semibold text-slate-200 md:text-3xl">Platform Engineering Leader | DevOps Architect | Cloud Native Specialist</h2>
+            <h2 className="mt-5 text-2xl font-semibold text-slate-200 md:text-3xl">Platform Engineering Leader · DevOps Architect · Cloud Native Specialist</h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">I design, build and operate resilient cloud platforms, Kubernetes ecosystems, DevOps transformation programs and AI-powered engineering solutions for enterprise-scale environments.</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a className="rounded-full bg-blue-500 px-6 py-3 font-semibold text-white hover:bg-blue-400" href="#contact">Contact Me</a>
@@ -97,7 +97,7 @@ export default function Home() {
               <a className="rounded-full border border-cyan-500/50 bg-cyan-500/10 px-6 py-3 font-semibold text-cyan-200 hover:bg-cyan-500/20" href="/aziz-zoaib-cv.pdf" download>Download CV</a>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-              {['15+ Years', 'AWS Azure GCP', 'Kubernetes SRE', 'AI + RAG'].map((item) => <div key={item} className="card rounded-2xl p-5 text-center font-bold">{item}</div>)}
+              {['15+ Years Experience', 'AWS · Azure · GCP', 'EKS · AKS · OpenShift', 'AI & RAG Systems'].map((item) => <div key={item} className="card rounded-2xl p-5 text-center font-bold">{item}</div>)}
             </div>
           </div>
           <div className="card rounded-[2rem] p-8">
@@ -107,7 +107,7 @@ export default function Home() {
               </div>
               <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">Professional Focus</p>
               <div className="mt-8 space-y-5">
-                {[['Cloud Architecture', Cloud], ['Kubernetes Platforms', Server], ['Security & Reliability', ShieldCheck], ['AI Engineering', Brain]].map(([label, Icon]: any) => <div key={label} className="flex items-center gap-4 rounded-2xl bg-slate-900/70 p-4"><Icon className="text-cyan-300" /><span>{label}</span></div>)}
+                {[['Cloud Architecture', Cloud], ['EKS · AKS · OpenShift', Server], ['Security & Reliability', ShieldCheck], ['AI & RAG Engineering', Brain]].map(([label, Icon]: any) => <div key={label} className="flex items-center gap-4 rounded-2xl bg-slate-900/70 p-4"><Icon className="text-cyan-300" /><span>{label}</span></div>)}
               </div>
             </div>
           </div>
@@ -168,9 +168,9 @@ export default function Home() {
         <div className="card rounded-[2rem] p-8 md:p-12">
           <SectionTitle eyebrow="Contact" title="Let’s build something great together" subtitle="Available for platform engineering leadership, DevOps transformation, cloud architecture, AI engineering and technical advisory opportunities." />
           <div className="grid gap-4 md:grid-cols-3">
-            <a className="rounded-2xl bg-slate-900 p-5 hover:bg-slate-800" href={links.email}><Mail className="mb-3 text-cyan-300" />me@azizzoaib.com</a>
-            <a className="rounded-2xl bg-slate-900 p-5 hover:bg-slate-800" href={links.whatsapp}><MessageCircle className="mb-3 text-cyan-300" />WhatsApp: +971 56 810 3175</a>
-            <a className="rounded-2xl bg-slate-900 p-5 hover:bg-slate-800" href={links.phone}><Phone className="mb-3 text-cyan-300" />Call: +971 56 810 3175</a>
+            <a className="rounded-2xl bg-slate-900 p-5 hover:bg-slate-800" href={links.email}><Mail className="mb-3 text-cyan-300" /><p className="text-xs text-slate-400 mb-1">Email</p>me@azizzoaib.com</a>
+            <a className="rounded-2xl bg-slate-900 p-5 hover:bg-slate-800" href={links.whatsapp}><MessageCircle className="mb-3 text-cyan-300" /><p className="text-xs text-slate-400 mb-1">WhatsApp</p>+971 56 810 3175</a>
+            <a className="rounded-2xl bg-slate-900 p-5 hover:bg-slate-800" href={links.phone}><Phone className="mb-3 text-cyan-300" /><p className="text-xs text-slate-400 mb-1">Phone</p>+971 56 810 3175</a>
           </div>
         </div>
       </section>
