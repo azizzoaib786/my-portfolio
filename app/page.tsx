@@ -1,4 +1,6 @@
-import { Mail, Phone, MessageCircle, ExternalLink, Cloud, Server, ShieldCheck, Brain, Trophy, GraduationCap, Code2, Link2 } from 'lucide-react'
+'use client'
+import { useState } from 'react'
+import { Mail, Phone, MessageCircle, ExternalLink, Cloud, Server, ShieldCheck, Brain, Trophy, GraduationCap, Code2, Link2, Menu, X } from 'lucide-react'
 
 const links = {
   linkedin: 'https://www.linkedin.com/in/azizzoaib786/',
@@ -36,9 +38,15 @@ const experience = [
     points: ['Kubernetes and Docker Swarm orchestration', 'Jenkins, Ansible, Terraform and CloudFormation automation', 'Prometheus, New Relic and ELK monitoring']
   },
   {
-    company: 'Gemalto, StarzPlay & Unified Communications',
+    company: 'StarzPlay',
+    role: 'DevOps Engineer',
+    period: 'Oct 2015 – Sep 2016',
+    points: ['CI/CD pipelines using Jenkins and Git', 'AWS Elastic Beanstalk, EC2, RDS, CloudFront, Route 53', 'Infrastructure automation with Ansible playbooks', 'CDN management across Akamai, Level3, CloudFront and Cedexis']
+  },
+  {
+    company: 'Gemalto & Unified Communications',
     role: 'DevOps / Systems Engineering',
-    period: '2010 – 2018',
+    period: '2010 – 2015',
     points: ['AWS migration, Linux platforms, telecom systems and HA/DR engineering', 'CI/CD, infrastructure automation, cloud operations and enterprise support']
   }
 ]
@@ -54,7 +62,8 @@ const projects = [
 ]
 
 const awards = [
-  'Najm Award from Emirates Airlines for Meal Voucher automation at Dubai Airports',
+  'Najm Award from Emirates Airlines for the EKAS-MIS data platform deployed for Emirates digital platform',
+  'Najm Award from Emirates Airlines for automation contributions on the Meal Voucher project at Dubai Airports',
   'Special recognition at Talabat for end-to-end AWS infrastructure provisioning with Terraform',
   'Special Efforts Award from Gemalto for IBM Private Cloud to AWS migration',
   'MSc Data Science research recognition for AI-driven Kubernetes self-healing',
@@ -72,6 +81,7 @@ function SectionTitle({ eyebrow, title, subtitle }: { eyebrow: string, title: st
 }
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false)
   return (
     <main className="min-h-screen overflow-hidden">
       <nav className="fixed top-0 z-50 w-full border-b border-slate-800/80 bg-[#0B1120]/80 backdrop-blur">
@@ -80,7 +90,18 @@ export default function Home() {
           <div className="hidden gap-6 text-sm text-slate-300 md:flex">
             <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
           </div>
+          <button className="md:hidden text-slate-300 p-1" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
+        {menuOpen && (
+          <div className="md:hidden border-t border-slate-800 bg-[#0B1120] px-6 py-4 flex flex-col gap-4 text-sm text-slate-300">
+            <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+            <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
+            <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          </div>
+        )}
       </nav>
 
       <section id="home" className="relative pt-32 md:pt-40">
@@ -107,7 +128,7 @@ export default function Home() {
               </div>
               <p className="text-sm uppercase tracking-[0.3em] text-cyan-300">Professional Focus</p>
               <div className="mt-8 space-y-5">
-                {[['Cloud Architecture', Cloud], ['EKS · AKS · OpenShift', Server], ['Security & Reliability', ShieldCheck], ['AI & RAG Engineering', Brain]].map(([label, Icon]: any) => <div key={label} className="flex items-center gap-4 rounded-2xl bg-slate-900/70 p-4"><Icon className="text-cyan-300" /><span>{label}</span></div>)}
+                {[['Cloud Architecture', Cloud], ['EKS · AKS · OpenShift', Server], ['Security & Reliability', ShieldCheck], ['AI · LLMs · RAG', Brain]].map(([label, Icon]: any) => <div key={label} className="flex items-center gap-4 rounded-2xl bg-slate-900/70 p-4"><Icon className="text-cyan-300" /><span>{label}</span></div>)}
               </div>
             </div>
           </div>
