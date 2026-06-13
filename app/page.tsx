@@ -196,7 +196,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-800 px-6 py-8 text-center text-sm text-slate-400">© 2026 Aziz Zoaib. Built for azizzoaib.com.</footer>
+      <footer className="border-t border-slate-800 px-6 py-8 text-center text-sm text-slate-400">© 2026 Aziz Zoaib</footer>
     </main>
   )
 }
