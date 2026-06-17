@@ -2,6 +2,19 @@ import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 
+// Load context once at module level
+let contextCache = ''
+function getContext(): string {
+  if (contextCache) return contextCache
+  try {
+    const contextPath = path.join(process.cwd(), 'public', 'context.md')
+    contextCache = fs.readFileSync(contextPath, 'utf-8')
+    return contextCache
+  } catch {
+    return 'Aziz Zoaib is a Cloud Native & Platform Engineering Leader based in Dubai with 15+ years experience. Contact: me@azizzoaib.com'
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { message, history } = await req.json()
@@ -12,12 +25,11 @@ export async function POST(req: NextRequest) {
 
     const apiKey = process.env.GROQ_API_KEY
     if (!apiKey) {
+      console.error('GROQ_API_KEY is not set')
       return NextResponse.json({ error: 'AI service not configured' }, { status: 500 })
     }
 
-    // Load context.md
-    const contextPath = path.join(process.cwd(), 'public', 'context.md')
-    const context = fs.readFileSync(contextPath, 'utf-8')
+    const context = getContext()
 
     const systemPrompt = `You are an AI assistant on Aziz Zoaib's personal portfolio website. Your job is to answer questions about Aziz in a helpful, professional and friendly tone.
 
@@ -41,7 +53,7 @@ ${context}
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'llama3-8b-8192',
+        model: 'llama-3.1-8b-instant',
         messages: [{ role: 'system', content: systemPrompt }, ...messages],
         max_tokens: 400,
         temperature: 0.6
