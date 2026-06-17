@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { Mail, Phone, MessageCircle, ExternalLink, Cloud, Server, ShieldCheck, Brain, Trophy, GraduationCap, Code2, Link2, Menu, X } from 'lucide-react'
+import ChatWidget from './components/ChatWidget'
 
 const links = {
   linkedin: 'https://www.linkedin.com/in/azizzoaib786/',
@@ -197,6 +198,7 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-slate-800 px-6 py-8 text-center text-sm text-slate-400">© 2026 Aziz Zoaib</footer>
+      <ChatWidget />
     </main>
   )
 }
