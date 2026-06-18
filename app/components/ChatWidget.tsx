@@ -14,6 +14,74 @@ const SUGGESTIONS = [
   'How can I contact Aziz?'
 ]
 
+function formatMessage(text: string) {
+  const lines = text.split('\n')
+  const elements: React.ReactNode[] = []
+  let i = 0
+
+  while (i < lines.length) {
+    const line = lines[i]
+
+    if (!line.trim()) { i++; continue }
+
+    // Bullet point
+    if (line.match(/^[-•*]\s+/)) {
+      const items: string[] = []
+      while (i < lines.length && lines[i].match(/^[-•*]\s+/)) {
+        items.push(lines[i].replace(/^[-•*]\s+/, ''))
+        i++
+      }
+      elements.push(
+        <ul key={i} className="list-disc list-inside space-y-1 my-1">
+          {items.map((item, j) => <li key={j}>{renderInline(item)}</li>)}
+        </ul>
+      )
+      continue
+    }
+
+    // Numbered list
+    if (line.match(/^\d+\.\s+/)) {
+      const items: string[] = []
+      while (i < lines.length && lines[i].match(/^\d+\.\s+/)) {
+        items.push(lines[i].replace(/^\d+\.\s+/, ''))
+        i++
+      }
+      elements.push(
+        <ol key={i} className="list-decimal list-inside space-y-1 my-1">
+          {items.map((item, j) => <li key={j}>{renderInline(item)}</li>)}
+        </ol>
+      )
+      continue
+    }
+
+    // Heading
+    if (line.startsWith('### ')) {
+      elements.push(<p key={i} className="font-bold text-white mt-2">{line.slice(4)}</p>)
+      i++; continue
+    }
+    if (line.startsWith('## ') || line.startsWith('# ')) {
+      elements.push(<p key={i} className="font-bold text-white mt-2">{line.replace(/^#+\s/, '')}</p>)
+      i++; continue
+    }
+
+    // Normal paragraph
+    elements.push(<p key={i} className="leading-6">{renderInline(line)}</p>)
+    i++
+  }
+
+  return <>{elements}</>
+}
+
+function renderInline(text: string): React.ReactNode {
+  // Bold: **text**
+  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+  return parts.map((part, i) =>
+    part.startsWith('**') && part.endsWith('**')
+      ? <strong key={i} className="text-white font-semibold">{part.slice(2, -2)}</strong>
+      : part
+  )
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState('')
@@ -89,9 +157,9 @@ export default function ChatWidget() {
                 <div className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-6 ${
                   m.role === 'user'
                     ? 'bg-blue-500 text-white rounded-tr-sm'
-                    : 'bg-slate-800 text-slate-200 rounded-tl-sm'
+                    : 'bg-slate-800 text-slate-200 rounded-tl-sm space-y-1'
                 }`}>
-                  {m.content}
+                  {m.role === 'assistant' ? formatMessage(m.content) : m.content}
                 </div>
                 {m.role === 'user' && (
                   <div className="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center shrink-0 mt-1">
