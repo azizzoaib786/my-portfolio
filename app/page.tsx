@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { Mail, Phone, MessageCircle, ExternalLink, Cloud, Server, ShieldCheck, Brain, Trophy, GraduationCap, Code2, Link2, Menu, X } from 'lucide-react'
 import ChatWidget from './components/ChatWidget'
+import VisitCounter from './components/VisitCounter'
 
 const links = {
   linkedin: 'https://www.linkedin.com/in/azizzoaib786/',
@@ -199,11 +200,7 @@ export default function Home() {
 
       <footer className="border-t border-slate-800 px-6 py-8 text-center text-sm text-slate-400">
         <p>© 2026 Aziz Zoaib</p>
-        <div className="mt-3 flex justify-center items-center gap-2 text-slate-500 text-xs">
-          <span>👁</span>
-          <img src="https://azizzoaib.goatcounter.com/counter//.svg" alt="visitor count" className="h-6" />
-          <span>visits</span>
-        </div>
+        <VisitCounter />
       </footer>
       <ChatWidget />
     </main>
