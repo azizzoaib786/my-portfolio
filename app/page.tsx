@@ -199,10 +199,10 @@ export default function Home() {
 
       <footer className="border-t border-slate-800 px-6 py-8 text-center text-sm text-slate-400">
         <p>© 2026 Aziz Zoaib</p>
-        <div className="mt-3 flex justify-center">
-          <a href="https://azizzoaib.goatcounter.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://azizzoaib.goatcounter.com/counter//.svg" alt="visitor count" className="h-5 opacity-70 hover:opacity-100 transition-opacity" />
-          </a>
+        <div className="mt-3 flex justify-center items-center gap-2 text-slate-500 text-xs">
+          <span>👁</span>
+          <img src="https://azizzoaib.goatcounter.com/counter//.svg" alt="visitor count" className="h-6" />
+          <span>visits</span>
         </div>
       </footer>
       <ChatWidget />
